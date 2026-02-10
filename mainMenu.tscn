@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dq10ffbw45b5x"]
+
+[ext_resource type="FontFile" uid="uid://c11v6c337boyd" path="res://Assets/Fonts/framdit.ttf" id="1_wut1r"]
+
+[sub_resource type="Theme" id="Theme_wut1r"]
+
+[sub_resource type="Theme" id="Theme_83s16"]
+Button/font_sizes/font_size = 100
+Button/fonts/font = ExtResource("1_wut1r")
+
+[node name="Control" type="Control" unique_id=2092269212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wut1r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=276724342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1236612832]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_wut1r")
+text = "aaa"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=987658810]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=472313962]
+layout_mode = 2
+theme = SubResource("Theme_83s16")
+text = "aaa"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1708497773]
+layout_mode = 2
+text = "bbb"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=260255062]
+layout_mode = 2
+text = "ccc"
+
+[node name="Label2" type="Label" parent="." unique_id=1881689456]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+text = "aaaaa"

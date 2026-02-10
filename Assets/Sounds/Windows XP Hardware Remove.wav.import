@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2m65dv04ynxx"
+path="res://.godot/imported/Windows XP Hardware Remove.wav-f921f522e21d01bf6003a1ec5e7122b6.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Windows XP Hardware Remove.wav"
+dest_files=["res://.godot/imported/Windows XP Hardware Remove.wav-f921f522e21d01bf6003a1ec5e7122b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
