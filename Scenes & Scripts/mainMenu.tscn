@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dq10ffbw45b5x"]
+
+[ext_resource type="Script" uid="uid://c2renrrml4imc" path="res://Scenes & Scripts/main_menu.gd" id="1_a23do"]
+[ext_resource type="FontFile" uid="uid://c11v6c337boyd" path="res://Assets/Fonts/framdit.ttf" id="2_pv0hw"]
+
+[sub_resource type="Theme" id="Theme_wut1r"]
+
+[node name="Control" type="Control" unique_id=2092269212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wut1r")
+script = ExtResource("1_a23do")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=276724342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30498964, 0.17135948, 0.06905604, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1236612832]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 161.0
+offset_right = 82.0
+offset_bottom = 184.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pv0hw")
+text = "Please select your Clan:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=741596314]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TojoClan" type="Button" parent="VBoxContainer" unique_id=21094322]
+layout_mode = 2
+text = "Tojo Clan"
+
+[node name="OmiAlliance" type="Button" parent="VBoxContainer" unique_id=1964401552]
+layout_mode = 2
+text = "Omi Alliance"
+
+[node name="MoreInfo" type="Button" parent="VBoxContainer" unique_id=297020832]
+layout_mode = 2
+text = "What's this?"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2138090924]
+layout_mode = 2
+text = "Quit"
+
+[node name="InfoPanel" type="Control" parent="." unique_id=1419199606]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="InfoPanel" unique_id=903517247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 335.0
+offset_top = 66.0
+offset_right = -335.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 1)
+
+[node name="Label" type="Label" parent="InfoPanel" unique_id=151382080]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -11.5
+offset_right = 63.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "Okaaayy let's go"
+
+[connection signal="pressed" from="VBoxContainer/TojoClan" to="." method="_on_tojo_clan_pressed"]
+[connection signal="pressed" from="VBoxContainer/OmiAlliance" to="." method="_on_omi_alliance_pressed"]
+[connection signal="pressed" from="VBoxContainer/MoreInfo" to="." method="_on_more_info_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

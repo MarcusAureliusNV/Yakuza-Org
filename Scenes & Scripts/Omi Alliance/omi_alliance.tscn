@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bbai0ftc81sq0"]
+
+[ext_resource type="Script" uid="uid://bbalvfdj43g16" path="res://Scenes & Scripts/Omi Alliance/omi_alliance.gd" id="1_ihgp3"]
+
+[node name="OmiAlliance" type="Control" unique_id=25140199]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ihgp3")
+
+[node name="Label" type="Label" parent="." unique_id=117841447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -129.0
+offset_right = 73.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buenas tardes omi"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1265386949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Go-Ryu Clan" type="Button" parent="VBoxContainer" unique_id=910637659]
+layout_mode = 2
+text = "Go-Ryu Clan
+"
+
+[node name="Watase Family" type="Button" parent="VBoxContainer" unique_id=1682187989]
+layout_mode = 2
+text = "Watase Family"
+
+[node name="Sengoku Family" type="Button" parent="VBoxContainer" unique_id=808362026]
+layout_mode = 2
+text = "Sengoku Family"
+
+[node name="Katsuya Family" type="Button" parent="VBoxContainer" unique_id=672729593]
+layout_mode = 2
+text = "Katsuya Family"
