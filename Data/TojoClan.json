@@ -1,0 +1,38 @@
+{
+	"clan_name": "Tojo Clan",
+	"chairman": "Masa Sera (3rd) / Kazuma Kiryu (4th)",
+	"families": {
+		"Nishikiyama Family": {
+			"Patriarch": [{"name": "Akira Nishikiyama", "title": "Head of Nishikiyama Family", "password": "yumi"}],
+			"Captain": [{"name": "Shinji Tanaka", "title": "Family Captain (Ex-Dojima)", "password": "reina"}],
+			"Lieutenant": [{"name": "Koji Shindo", "title": "Lieutenant Advisor", "password": "betrayal"}],
+			"Waka-shu": [
+				{"name": "Kazuto Arase", "title": "Special Ops Leader", "password": "guns"},
+				{"name": "Yuta Sato", "title": "Junior Enforcer", "password": "muscle"},
+				{"name": "Kenji Tanaka", "title": "Street Soldier", "password": "money"}
+			]
+		},
+		"Majima Family": {
+			"Patriarch": [{"name": "Goro Majima", "title": "The Mad Dog of Shimano", "password": "makoto"}],
+			"Captain": [{"name": "Nishida", "title": "Long-suffering Captain", "password": "helpme"}],
+			"Waka-shu": [
+				{"name": "Minami", "title": "Junior Member", "password": "karaoke"},
+				{"name": "Satoshi Suzuki", "title": "Construction Grunt", "password": "helmet"}
+			]
+		},
+		"Kazama Family": {
+			"Patriarch": [{"name": "Shintaro Kazama", "title": "The Tojo Strategist", "password": "sunflower"}],
+			"Captain": [{"name": "Osamu Kashiwagi", "title": "Interim Captain", "password": "coldnoodles"}],
+			"Waka-shu": [
+				{"name": "Mitsuo Itoh", "title": "Family Bodyguard", "password": "loyalty"}
+			]
+		},
+		"Shimano Family": {
+			"Patriarch": [{"name": "Futoshi Shimano", "title": "Tojo Lieutenant / Patriarch", "password": "bald"}],
+			"Waka-shu": [
+				{"name": "Nagisa", "title": "Enforcement Lead", "password": "fight"},
+				{"name": "Ichiro Ono", "title": "Street Thug", "password": "thug"}
+			]
+		}
+	}
+}

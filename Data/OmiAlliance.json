@@ -1,0 +1,19 @@
+{
+	"clan_name": "Omi Alliance",
+	"chairman": "Jin Goda (5th)",
+	"families": {
+		"Go-Ryu Clan": {
+			"Patriarch": [{"name": "Ryuji Goda", "title": "The Dragon of Kansai", "password": "bonguk"}],
+			"Captain": [{"name": "Murai", "title": "Go-Ryu Captain", "password": "shogi"}],
+			"Waka-shu": [
+				{"name": "Takahiro Mori", "title": "Heavy Enforcer", "password": "bash"}
+			]
+		},
+		"Watase Family": {
+			"Patriarch": [{"name": "Masaru Watase", "title": "Omi Alliance Lieutenant", "password": "fighting"}],
+			"Waka-shu": [
+				{"name": "Katsuo Sato", "title": "Frontline Soldier", "password": "osaka"}
+			]
+		}
+	}
+}

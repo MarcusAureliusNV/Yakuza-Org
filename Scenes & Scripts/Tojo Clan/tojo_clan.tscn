@@ -3,9 +3,24 @@
 [ext_resource type="Script" uid="uid://lr0lfcm63vwr" path="res://Scenes & Scripts/Tojo Clan/tojo_clan.gd" id="1_6x7jc"]
 [ext_resource type="Texture2D" uid="uid://dfea0ajulrw0k" path="res://Assets/Icons/WinIcons_16.png" id="2_ptvu6"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b0yl2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptvu6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41675407, 8.4830447e-07, 2.1658838e-07, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aat2u"]
+[sub_resource type="Theme" id="Theme_ptvu6"]
+Tree/colors/font_color = Color(1, 1, 1, 1)
+Tree/colors/parent_hl_line_color = Color(0.60074526, 0.50324535, 0, 1)
+Tree/colors/relationship_line_color = Color(0.60074526, 0.50324535, 0, 1)
+Tree/colors/title_button_color = Color(1, 0.84313726, 0, 1)
+Tree/constants/item_margin = 20
+Tree/constants/v_separation = 12
+Tree/styles/panel = SubResource("StyleBoxFlat_ptvu6")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptvu6"]
 texture = ExtResource("2_ptvu6")
 0:0/0 = 0
 1:0/0 = 0
@@ -518,7 +533,7 @@ texture = ExtResource("2_ptvu6")
 6:22/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_krj3m"]
-sources/0 = SubResource("TileSetAtlasSource_aat2u")
+sources/0 = SubResource("TileSetAtlasSource_ptvu6")
 
 [node name="TojoClan" type="Control" unique_id=423476488]
 layout_mode = 3
@@ -536,10 +551,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = -152.0
-offset_right = 73.0
-offset_bottom = -129.0
+offset_left = -105.0
+offset_top = -271.0
+offset_right = 105.0
+offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Buenas tardes tojo familia?"
@@ -551,28 +566,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -519.5
+offset_top = -250.0
+offset_right = 519.5
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Kazama Family" type="Button" parent="VBoxContainer" unique_id=91350432]
+[node name="HierarchyTree" type="Tree" parent="VBoxContainer" unique_id=1785487628]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 500)
 layout_mode = 2
-text = "Kazama Family"
-
-[node name="Majima Family" type="Button" parent="VBoxContainer" unique_id=87084807]
-layout_mode = 2
-text = "Majima Family"
-
-[node name="Nishikiyama Family" type="Button" parent="VBoxContainer" unique_id=1224724348]
-layout_mode = 2
-text = "Nishikiyama Family"
-
-[node name="Shimano Family" type="Button" parent="VBoxContainer" unique_id=368396314]
-layout_mode = 2
-text = "Shimano Family"
+theme = SubResource("Theme_ptvu6")
+theme_override_constants/draw_relationship_lines = 0
+theme_override_constants/relationship_line_width = 1
+columns = 4
+column_titles_visible = true
+allow_search = false
+hide_root = true
 
 [node name="QuitButton" type="Button" parent="." unique_id=1245946964]
 layout_mode = 1
@@ -585,9 +596,159 @@ offset_left = -15.0
 offset_top = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-icon = SubResource("ViewportTexture_b0yl2")
+flat = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="QuitButton" unique_id=2118616100]
 position = Vector2(-1088, -608)
 tile_map_data = PackedByteArray(0, 0, 68, 0, 38, 0, 0, 0, 3, 0, 19, 0, 0, 0)
 tile_set = SubResource("TileSet_krj3m")
+
+[node name="LoginPanel" type="Panel" parent="." unique_id=1963049884]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_top = -321.0
+offset_right = 583.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="LoginPanel" unique_id=400393034]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_right = 29.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Paxwor"
+
+[node name="PasswordInput" type="LineEdit" parent="LoginPanel" unique_id=864462296]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.25
+offset_top = -15.5
+offset_right = 34.25
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+secret = true
+secret_character = "$"
+
+[node name="ConfirmButton" type="Button" parent="LoginPanel" unique_id=2055807951]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Confirma"
+
+[node name="CancelButton" type="Button" parent="LoginPanel" unique_id=1854314508]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+text = "Cancela"
+
+[node name="ErrorLabel" type="Label" parent="LoginPanel" unique_id=163546622]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -23.0
+offset_right = 33.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ERROR!!!"
+
+[node name="ActionPanel" type="Panel" parent="." unique_id=397783006]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = -42.0
+offset_right = 239.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorkingPerson" type="Label" parent="ActionPanel" unique_id=880036930]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionPanel" unique_id=1572602696]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PauseButton" type="Button" parent="ActionPanel/VBoxContainer" unique_id=1489206059]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LogoutButton" type="Button" parent="ActionPanel/VBoxContainer" unique_id=424958660]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LOG OFF"
+
+[node name="CloseButton" type="Button" parent="ActionPanel/VBoxContainer" unique_id=709520545]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CLOSE WINDOW"
+
+[connection signal="item_activated" from="VBoxContainer/HierarchyTree" to="." method="_on_hierarchy_tree_item_activated"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="text_submitted" from="LoginPanel/PasswordInput" to="." method="_on_password_input_text_submitted"]
+[connection signal="pressed" from="LoginPanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="LoginPanel/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="ActionPanel/VBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="ActionPanel/VBoxContainer/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="ActionPanel/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

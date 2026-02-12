@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.30498964, 0.17135948, 0.06905604, 1)
+color = Color(0.12926376, 0.062268972, 0.016080514, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1236612832]
 layout_mode = 1
