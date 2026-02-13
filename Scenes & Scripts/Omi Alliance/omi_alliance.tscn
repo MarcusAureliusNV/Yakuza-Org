@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://lr0lfcm63vwr" path="res://Scenes & Scripts/Tojo Clan/tojo_clan.gd" id="1_r3our"]
 [ext_resource type="Texture2D" uid="uid://dfea0ajulrw0k" path="res://Assets/Icons/WinIcons_16.png" id="2_r3our"]
+[ext_resource type="Texture2D" uid="uid://2xbip1xbvhyu" path="res://Assets/Images/09.jpg" id="2_tuydg"]
+[ext_resource type="FontFile" uid="uid://cojh8qcwvowfh" path="res://Assets/Fonts/edosz.ttf" id="3_l52ow"]
+[ext_resource type="AudioStream" uid="uid://dh20m7gjjryc7" path="res://Assets/Musique/YAKUZA 0 OST - Have A Problem_ (Hidden Track).mp3" id="5_cy4y1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptvu6"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.53000003)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -20,7 +23,7 @@ Tree/constants/item_margin = 20
 Tree/constants/v_separation = 12
 Tree/styles/panel = SubResource("StyleBoxFlat_ptvu6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptvu6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aat2u"]
 texture = ExtResource("2_r3our")
 0:0/0 = 0
 1:0/0 = 0
@@ -533,7 +536,105 @@ texture = ExtResource("2_r3our")
 6:22/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_krj3m"]
-sources/0 = SubResource("TileSetAtlasSource_ptvu6")
+sources/0 = SubResource("TileSetAtlasSource_aat2u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krj3m"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41675407, 8.4830447e-07, 2.1658838e-07, 1)
+
+[sub_resource type="Animation" id="Animation_x8wii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3cvsc"]
+resource_name = "out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6njjg"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krj3m"]
+_data = {
+&"RESET": SubResource("Animation_x8wii"),
+&"out": SubResource("Animation_3cvsc"),
+&"transition": SubResource("Animation_6njjg")
+}
 
 [node name="OmiAlliance" type="Control" unique_id=423476488]
 layout_mode = 3
@@ -544,25 +645,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r3our")
 
-[node name="Label" type="Label" parent="." unique_id=1946165523]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1541671626]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tuydg")
+expand_mode = 1
+
+[node name="WelcomingLabel" type="Label" parent="." unique_id=1946165523]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -81.0
-offset_right = 81.0
-offset_bottom = 23.0
+offset_left = -244.0
+offset_right = 244.0
+offset_bottom = 35.0
 grow_horizontal = 2
-text = "OMI HEADQUARTERS"
+theme_override_fonts/font = ExtResource("3_l52ow")
+theme_override_font_sizes/font_size = 30
+text = "Welcome to the Omi Headquarters."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=546581067]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -250.0
-offset_right = 608.0
-offset_bottom = 250.0
+offset_left = -519.0
+offset_top = -279.0
+offset_right = 520.0
+offset_bottom = 221.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HierarchyTree" type="Tree" parent="VBoxContainer" unique_id=1785487628]
@@ -595,7 +713,7 @@ position = Vector2(-1088, -608)
 tile_map_data = PackedByteArray(0, 0, 68, 0, 38, 0, 0, 0, 3, 0, 19, 0, 0, 0)
 tile_set = SubResource("TileSet_krj3m")
 
-[node name="LoginPanel" type="Panel" parent="." unique_id=1963049884]
+[node name="LoginPanel" type="Panel" parent="." unique_id=80618372]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -604,27 +722,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -583.0
-offset_top = -321.0
-offset_right = 583.0
-offset_bottom = 321.0
+offset_left = -192.0
+offset_top = -91.0
+offset_right = 192.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleLabel" type="Label" parent="LoginPanel" unique_id=400393034]
+[node name="TitleLabel" type="Label" parent="LoginPanel" unique_id=1309666557]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -29.0
-offset_right = 29.0
+offset_left = -126.0
+offset_right = 126.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Paxwor"
+text = "Please introduce your Password:"
 
-[node name="PasswordInput" type="LineEdit" parent="LoginPanel" unique_id=864462296]
+[node name="PasswordInput" type="LineEdit" parent="LoginPanel" unique_id=1370934458]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -641,7 +759,7 @@ grow_vertical = 2
 secret = true
 secret_character = "$"
 
-[node name="ConfirmButton" type="Button" parent="LoginPanel" unique_id=2055807951]
+[node name="ConfirmButton" type="Button" parent="LoginPanel" unique_id=595600603]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -649,24 +767,24 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
+offset_left = -80.0
+offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Confirma"
+text = "Confirm"
 
-[node name="CancelButton" type="Button" parent="LoginPanel" unique_id=1854314508]
+[node name="CancelButton" type="Button" parent="LoginPanel" unique_id=2110265334]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = 8.0
+offset_top = -31.0
+offset_right = 60.0
 grow_vertical = 0
-text = "Cancela"
+text = "Cancel"
 
-[node name="ErrorLabel" type="Label" parent="LoginPanel" unique_id=163546622]
+[node name="ErrorLabel" type="Label" parent="LoginPanel" unique_id=1953864323]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -686,28 +804,17 @@ text = "ERROR!!!"
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 107.0
-offset_top = -42.0
-offset_right = 239.0
-offset_bottom = 42.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -104.0
+offset_right = 66.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="WorkingPerson" type="Label" parent="ActionPanel" unique_id=880036930]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_krj3m")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ActionPanel" unique_id=1572602696]
 layout_mode = 1
@@ -716,15 +823,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -67.0
+offset_top = -78.0
+offset_right = 67.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PauseButton" type="Button" parent="ActionPanel/VBoxContainer" unique_id=1489206059]
 unique_name_in_owner = true
 layout_mode = 2
+text = "a"
 
 [node name="LogoutButton" type="Button" parent="ActionPanel/VBoxContainer" unique_id=424958660]
 unique_name_in_owner = true
@@ -735,6 +843,33 @@ text = "LOG OFF"
 unique_name_in_owner = true
 layout_mode = 2
 text = "CLOSE WINDOW"
+
+[node name="WorkingPerson" type="Label" parent="ActionPanel" unique_id=880036930]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -22.0
+offset_right = 134.0
+offset_bottom = 1.0
+
+[node name="Transition" type="ColorRect" parent="." unique_id=817364153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=1257570014]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_krj3m")
+autoplay = &"transition"
+
+[node name="TojoClanMusic" type="AudioStreamPlayer" parent="." unique_id=73388465]
+stream = ExtResource("5_cy4y1")
+volume_db = -23.72
+autoplay = true
+parameters/looping = true
 
 [connection signal="item_activated" from="VBoxContainer/HierarchyTree" to="." method="_on_hierarchy_tree_item_activated"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

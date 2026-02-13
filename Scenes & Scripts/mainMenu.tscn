@@ -1,9 +1,115 @@
 [gd_scene format=3 uid="uid://dq10ffbw45b5x"]
 
 [ext_resource type="Script" uid="uid://c2renrrml4imc" path="res://Scenes & Scripts/main_menu.gd" id="1_a23do"]
+[ext_resource type="Texture2D" uid="uid://dlbkps5ko3dlg" path="res://Assets/Images/do-you-guys-use-some-cool-yakuza-wallpaper-v0-9ujg535m1g8e1.webp" id="2_6kvsf"]
 [ext_resource type="FontFile" uid="uid://c11v6c337boyd" path="res://Assets/Fonts/framdit.ttf" id="2_pv0hw"]
+[ext_resource type="FontFile" uid="uid://cojh8qcwvowfh" path="res://Assets/Fonts/edosz.ttf" id="4_6kvsf"]
+[ext_resource type="AudioStream" uid="uid://vieewbu6yled" path="res://Assets/Musique/Yakuza Sound Effect - Name Introduction.mp3" id="5_x8wii"]
 
-[sub_resource type="Theme" id="Theme_wut1r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv0hw"]
+bg_color = Color(0.8217887, 0.8217887, 0.8217885, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41675407, 8.4830447e-07, 2.1658838e-07, 1)
+border_blend = true
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_x8wii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4sgl0"]
+resource_name = "audio"
+length = 2.0
+
+[sub_resource type="Animation" id="Animation_3cvsc"]
+resource_name = "out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6njjg"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3cvsc"]
+_data = {
+&"RESET": SubResource("Animation_x8wii"),
+&"audio": SubResource("Animation_4sgl0"),
+&"out": SubResource("Animation_3cvsc"),
+&"transition": SubResource("Animation_6njjg")
+}
 
 [node name="Control" type="Control" unique_id=2092269212]
 layout_mode = 3
@@ -12,60 +118,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_wut1r")
 script = ExtResource("1_a23do")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=276724342]
+[node name="Background" type="TextureRect" parent="." unique_id=1233198341]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12926376, 0.062268972, 0.016080514, 1)
+texture = ExtResource("2_6kvsf")
 
 [node name="Label" type="Label" parent="." unique_id=1236612832]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -81.0
-offset_top = 161.0
-offset_right = 82.0
-offset_bottom = 184.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 79.0
+offset_top = -122.0
+offset_right = 242.0
+offset_bottom = -99.0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_pv0hw")
 text = "Please select your Clan:"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=741596314]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TojoClan" type="Button" parent="VBoxContainer" unique_id=21094322]
-layout_mode = 2
-text = "Tojo Clan"
-
-[node name="OmiAlliance" type="Button" parent="VBoxContainer" unique_id=1964401552]
-layout_mode = 2
-text = "Omi Alliance"
-
-[node name="MoreInfo" type="Button" parent="VBoxContainer" unique_id=297020832]
-layout_mode = 2
-text = "What's this?"
-
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2138090924]
-layout_mode = 2
-text = "Quit"
 
 [node name="InfoPanel" type="Control" parent="." unique_id=1419199606]
 unique_name_in_owner = true
@@ -82,31 +157,108 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 335.0
+offset_left = 234.0
 offset_top = 66.0
-offset_right = -335.0
+offset_right = -234.0
 offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 1, 0, 1)
+color = Color(0.8217887, 0.8217887, 0.8217885, 1)
 
-[node name="Label" type="Label" parent="InfoPanel" unique_id=151382080]
+[node name="Label" type="Label" parent="InfoPanel/ColorRect" unique_id=151382080]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -11.5
-offset_right = 63.0
-offset_bottom = 11.5
+offset_left = -322.5
+offset_top = -167.5
+offset_right = 325.5
+offset_bottom = 239.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 1, 1)
-text = "Okaaayy let's go"
+theme_override_colors/font_color = Color(0.41675407, 8.4830447e-07, 2.1658838e-07, 1)
+theme_override_fonts/font = ExtResource("4_6kvsf")
+text = "This is an app that helps organizing members of their own Organizations.
 
-[connection signal="pressed" from="VBoxContainer/TojoClan" to="." method="_on_tojo_clan_pressed"]
-[connection signal="pressed" from="VBoxContainer/OmiAlliance" to="." method="_on_omi_alliance_pressed"]
-[connection signal="pressed" from="VBoxContainer/MoreInfo" to="." method="_on_more_info_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+In order to use it properly, you need to click in one of the two current clans:
+1. Tojo Clan
+2. Omi Alliance
+
+After that, double click on your profile and enter your password. Then start working!
+
+If you need to make a pause, double click yourself and click on \"PAUSE\".
+
+If you want to log out, double click yourself and click on \"LOG OFF\".
+
+Let's make lots of money!
+
+Please click anywhere else to quit this tutorial."
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=42479159]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -68.0
+offset_right = 206.0
+offset_bottom = 68.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pv0hw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=741596314]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TojoClan" type="Button" parent="PanelContainer/VBoxContainer" unique_id=21094322]
+layout_mode = 2
+text = "Tojo Clan"
+
+[node name="OmiAlliance" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1964401552]
+layout_mode = 2
+text = "Omi Alliance"
+
+[node name="MoreInfo" type="Button" parent="PanelContainer/VBoxContainer" unique_id=297020832]
+layout_mode = 2
+text = "What's this?"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2138090924]
+layout_mode = 2
+text = "Quit"
+
+[node name="Label2" type="Label" parent="." unique_id=1584632214]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 635.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("4_6kvsf")
+theme_override_font_sizes/font_size = 24
+text = "Welcome to the Yakuza Clan's Organization Application !"
+
+[node name="MainMenuMusic  (MMM)" type="AudioStreamPlayer" parent="." unique_id=1331926656]
+stream = ExtResource("5_x8wii")
+volume_db = -23.72
+autoplay = true
+
+[node name="Transition" type="ColorRect" parent="." unique_id=790487032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=454696204]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3cvsc")
+autoplay = &"transition"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TojoClan" to="." method="_on_tojo_clan_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/OmiAlliance" to="." method="_on_omi_alliance_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MoreInfo" to="." method="_on_more_info_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

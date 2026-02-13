@@ -4,6 +4,9 @@ extends Control
 # Tree where there is everything
 @onready var tree: Tree = %HierarchyTree
 
+# Fade out on quit button
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 # Panels to show/hide
 @onready var login_panel: Panel = %LoginPanel
 @onready var action_panel: Panel = %ActionPanel
@@ -17,6 +20,8 @@ extends Control
 @onready var pause_button: Button = %PauseButton
 @onready var working_person: Label = %WorkingPersonLabel
 
+# Label to show the name of the logged in
+@onready var welcoming_label: Label = %WelcomingLabel
 
 ## Variables
 # This holds the specific row of the tree we clicked on
@@ -270,7 +275,7 @@ func _build_visual_tree() -> void:
 				mem_item.set_text(0, member["name"])
 				mem_item.set_text(1, member["title"])
 				
-				# IMPORTANT: Save the data in the item's metadata (The Backpack)
+				# Save the data in the item's metadata (The Backpack)
 				mem_item.set_metadata(0, member)
 				
 				# Save this item to our variables to update color immediately
@@ -281,7 +286,6 @@ func _build_visual_tree() -> void:
 # --- BUTTON CONNECTIONS (Connected via Editor) ---
 
 func _on_confirm_button_pressed() -> void:
-	# This replaces your old "_on_login_pressed "
 	var input_text = password_input.text
 	var real_password = current_data.get("password", "")
 	
@@ -290,6 +294,12 @@ func _on_confirm_button_pressed() -> void:
 		current_data["is_clocked_in"] = true
 		current_data["start_time"] = Time.get_unix_time_from_system()
 		current_data["status_text"] = "WORKING"
+		
+		# Updating the upper title with the current worker's name
+		welcoming_label.text = "Welcome, " + current_data["name"] + "!"
+		# Aligning it again because it unaligns with the new name
+		welcoming_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		welcoming_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		
 		_update_row_color(current_item)
 		_close_all_panels()
@@ -333,7 +343,10 @@ func _on_logout_button_pressed() -> void:
 	current_data["is_clocked_in"] = false
 	current_data["is_paused"] = false
 	current_data["status_text"] = "OFFLINE"
-	
+	# Updates title text so it has no name
+	welcoming_label.text = "Good work, " + current_data["name"] + ". See you soon!"
+	welcoming_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	welcoming_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	# Clear the time text manually
 	current_item.set_text(3, "")
 	
@@ -345,3 +358,9 @@ func _on_close_button_pressed() -> void:
 
 func _on_password_input_text_submitted(new_text: String) -> void:
 	_on_confirm_button_pressed()
+
+
+func _on_quit_button_pressed() -> void:
+	animation_player.play("out")
+	await animation_player.animation_finished
+	get_tree().change_scene_to_file("res://Scenes & Scripts/mainMenu.tscn")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0vr35viy4tdn"
+path="res://.godot/imported/Yakuza 2 Unreleased Songs - Briefing the Tojo Clan.mp3-ad5ef1dc362a7f41c5a78a36903e1cc0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musique/Yakuza 2 Unreleased Songs - Briefing the Tojo Clan.mp3"
+dest_files=["res://.godot/imported/Yakuza 2 Unreleased Songs - Briefing the Tojo Clan.mp3-ad5ef1dc362a7f41c5a78a36903e1cc0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
